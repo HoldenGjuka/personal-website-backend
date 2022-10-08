@@ -27,3 +27,9 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField('date published', default=pub_date_default)
     title = models.CharField(max_length=200, default=title_default)
     body = models.CharField(max_length=1500, default=body_default)
+
+class Image(models.Model):
+    def __str__(self):
+        return "image"
+    
+    img = models.ImageField('./../media/GitHub_Logo.png')
