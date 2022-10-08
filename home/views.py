@@ -25,8 +25,11 @@ def index(request):
 
 
 def resume(request):
+  #real code
   images = Image.objects.all()
   image64 = base64.b64encode(images[0].img)
+  #dummy send value below
   response = HttpResponse(json.dumps("asdf"))
   response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return response
+# see pickup from last bookmark folder
