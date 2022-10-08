@@ -8,10 +8,10 @@ import json
 def index(request):
   blogpost_queryset = BlogPost.objects.all()
   blog_array = []
+  
   for i in blogpost_queryset:
     count = 0
-    blog = {
-      'count': count, 
+    blog = { 
       'title': i.title,
       'body': i.body
     }
@@ -22,6 +22,3 @@ def index(request):
   print(json.dumps(blog_array))
   x.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return x
-# json.parse on js side
-# json.dumps on python side
-# encode and decode as base 64 for more complex stuff
