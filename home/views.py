@@ -3,18 +3,23 @@ from django.http import HttpResponse
 from home.models import BlogPost
 import json
 
+
+# sends all blog posts as json array
 def index(request):
-  index = 1
   blogpost_queryset = BlogPost.objects.all()
-  output_dict = {
-    "index": index,
-    "title": blogpost_queryset[0].title[2:-2],
-    "body": blogpost_queryset[0].body[2:-2]
-  }
-  json.dumps(output_dict)
+  blog_array = []
+  for i in blogpost_queryset:
+    count = 0
+    blog = {
+      'count': count, 
+      'title': i.title,
+      'body': i.body
+    }
+    blog_array.append(blog)
+    count = count + 1
   
-  
-  x = HttpResponse(json.dumps(output_dict))
+  x = HttpResponse(json.dumps(blog_array))
+  print(json.dumps(blog_array))
   x.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return x
 # json.parse on js side
