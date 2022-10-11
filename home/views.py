@@ -1,8 +1,11 @@
 from django.http import HttpResponse
 
-from home.models import BlogPost, Image
+from home.models import BlogPost
 import json
+import PIL
 import base64
+
+from io import BytesIO
 
 # sends all blog posts as json array
 def index(request):
@@ -25,10 +28,11 @@ def index(request):
 
 
 def resume(request):
-  #real code
-  
-  #dummy send value below
-  response = HttpResponse(json.dumps("asdf"))
+  img = PIL.Image.open('media/images/GitHub_Logo.png', mode='r')
+  buffered = BytesIO()
+  img.save(buffered, format="PNG")
+  img_str = base64.b64encode(buffered.getvalue())
+  response = HttpResponse(img_str)
   response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return response
 # see pickup from last bookmark folder
