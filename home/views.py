@@ -27,7 +27,7 @@ def index(request):
   return response
 
 
-def resume(request):
+def github_logo(request):
   img = PIL.Image.open('media/images/GitHub_Logo.png', mode='r')
   buffered = BytesIO()
   img.save(buffered, format="PNG")
