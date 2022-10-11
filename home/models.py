@@ -32,4 +32,4 @@ class Image(models.Model):
     def __str__(self):
         return "image"
     
-    img = models.ImageField('./../media/GitHub_Logo.png')
+    img = models.ImageField(upload_to='media/images/')
