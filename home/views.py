@@ -34,4 +34,13 @@ def github_logo(request):
   response = HttpResponse(img_str)
   response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return response
-# see pickup from last bookmark folder
+
+
+def resume(request):
+  img = PIL.Image.open('media/images/HOLDEN_GJUKA_CS_Resume_August.png', mode='r')
+  buffered = BytesIO()
+  img.save(buffered, format="PNG")
+  img_str = base64.b64encode(buffered.getvalue())
+  response = HttpResponse(img_str)
+  response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
+  return response
