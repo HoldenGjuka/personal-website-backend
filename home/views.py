@@ -22,7 +22,6 @@ def index(request):
     count = count + 1
   
   response = HttpResponse(json.dumps(blog_array))
-  print(json.dumps(blog_array))
   response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
   return response
 
