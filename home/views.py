@@ -22,7 +22,7 @@ def index(request):
     count = count + 1
   
   response = HttpResponse(json.dumps(blog_array))
-  response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
+  response.setdefault('Access-Control-Allow-Origin', "http://192.168.4.203:80")
   return response
 
 
@@ -32,7 +32,7 @@ def github_logo(request):
   img.save(buffered, format="PNG")
   img_str = base64.b64encode(buffered.getvalue())
   response = HttpResponse(img_str)
-  response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
+  response.setdefault('Access-Control-Allow-Origin', "http://192.168.4.203:80")
   return response
 
 
@@ -42,5 +42,5 @@ def resume(request):
   img.save(buffered, format="PNG")
   img_str = base64.b64encode(buffered.getvalue())
   response = HttpResponse(img_str)
-  response.setdefault('Access-Control-Allow-Origin', "http://localhost:3000")
+  response.setdefault('Access-Control-Allow-Origin', "http://192.168.4.203:80")
   return response
