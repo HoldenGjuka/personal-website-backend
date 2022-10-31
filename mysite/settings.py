@@ -25,7 +25,6 @@ def read_line_from_file(filepath):
     file = open(filepath, "r")
     line = file.readline().strip()
     file.close()
-    print(line)
     return line
 
 
