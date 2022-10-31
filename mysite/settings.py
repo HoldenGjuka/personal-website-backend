@@ -35,7 +35,7 @@ DATABASE_PASSWORD = read_line_from_file('./etc/database-password.txt')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["192.168.4.203"]
+ALLOWED_HOSTS = ["192.168.4.203", "127.0.0.1"]
 
 
 # Application definition
