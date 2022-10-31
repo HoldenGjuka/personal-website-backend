@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import psycopg2
 
 from pathlib import Path
 
@@ -19,10 +20,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = open(r"./etc/secret-key.txt", "r")
+#
+def read_line_from_file(filepath):
+    file = open(filepath, "r")
+    line = file.readline().strip()
+    file.close()
+    print(line)
+    return line
 
-DATABASE_PASSWORD = open(r"./etc/database-password.txt")
+
+SECRET_KEY = read_line_from_file('./etc/secret-key.txt')
+
+DATABASE_PASSWORD = read_line_from_file('./etc/database-password.txt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
