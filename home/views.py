@@ -29,7 +29,7 @@ def index(request):
 
 
 def github_logo(request):
-  img = PIL.Image.open('media/images/GitHub_Logo.png', mode='r')
+  img = PIL.Image.open('./media/images/GitHub_Logo.png', mode='r')
   buffered = BytesIO()
   img.save(buffered, format="PNG")
   img_str = base64.b64encode(buffered.getvalue())
@@ -39,7 +39,7 @@ def github_logo(request):
 
 
 def resume(request):
-  pdf = open('media/documents/HOLDEN_GJUKA_CS_Resume_August.pdf', mode='r')
+  pdf = open('./media/documents/HOLDEN_GJUKA_CS_Resume_August.pdf', mode='r')
   buffered = BytesIO()
   pdf.save(buffered, format="PDF")
   pdf_str = base64.b64encode(buffered.getvalue())
