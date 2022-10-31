@@ -7,7 +7,7 @@ import base64
 
 from io import BytesIO
 
-origin_url = "127.0.0.1"
+origin_url = "http://127.0.0.1"
 
 # sends all blog posts as json array
 def index(request):
