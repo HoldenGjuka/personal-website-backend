@@ -39,10 +39,10 @@ def github_logo(request):
 
 
 def resume(request):
-  img = PIL.Image.open('media/images/HOLDEN_GJUKA_CS_Resume_August.png', mode='r')
+  pdf = PIL.Image.open('media/documents/HOLDEN_GJUKA_CS_Resume_August.pdf', mode='r')
   buffered = BytesIO()
-  img.save(buffered, format="PNG")
-  img_str = base64.b64encode(buffered.getvalue())
-  response = HttpResponse(img_str)
+  pdf.save(buffered, format="PDF")
+  pdf_str = base64.b64encode(buffered.getvalue())
+  response = HttpResponse(pdf_str)
   response.setdefault('Access-Control-Allow-Origin', origin_url)
   return response
