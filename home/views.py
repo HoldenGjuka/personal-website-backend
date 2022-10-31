@@ -39,7 +39,7 @@ def github_logo(request):
 
 
 def resume(request):
-  pdf = PIL.Image.open('media/documents/HOLDEN_GJUKA_CS_Resume_August.pdf', mode='r')
+  pdf = open('media/documents/HOLDEN_GJUKA_CS_Resume_August.pdf', mode='r')
   buffered = BytesIO()
   pdf.save(buffered, format="PDF")
   pdf_str = base64.b64encode(buffered.getvalue())
