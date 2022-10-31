@@ -33,3 +33,9 @@ class Image(models.Model):
         return "image"
     
     img = models.ImageField(upload_to='media/images/')
+
+class PDF(models.Model):
+    def __str__(self):
+        return "resume"
+    
+    pdf = models.FileField(upload_to='media/documents/')
