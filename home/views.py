@@ -1,13 +1,19 @@
 from django.http import HttpResponse
 
 from home.models import BlogPost
+from mysite.settings import DEBUG
+
 import json
 import PIL
 import base64
-
 from io import BytesIO
 
-origin_url = "http://127.0.0.1"
+
+
+if DEBUG is True:
+  origin_url = "http://localhost:3000"
+else:
+  origin_url = "http://127.0.0.1"
 
 # sends all blog posts as json array
 def index(request):
