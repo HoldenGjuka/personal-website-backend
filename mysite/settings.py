@@ -6,7 +6,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True
+DEBUG = False
 
 def read_line_from_file(filepath):
     file = open(filepath, "r")
@@ -16,7 +16,7 @@ def read_line_from_file(filepath):
 
 SECRET_KEY = read_line_from_file('./etc/secret-key.txt')
 
-ALLOWED_HOSTS = ["192.168.4.203", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.4.203", "192.168.4.194", "127.0.0.1"]
 
 # Application definition
 
@@ -78,7 +78,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'mydb',
+            'NAME': 'personalwebsite',
             'USER': 'holden',
             'PASSWORD': DATABASE_PASSWORD,
             'HOST': 'localhost',
