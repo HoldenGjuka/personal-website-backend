@@ -45,10 +45,8 @@ def github_logo(request):
 
 
 def resume(request):
-  pdf = open('./media/documents/HOLDEN_GJUKA_CS_RESUME.pdf', mode='r')
-  buffered = BytesIO()
-  pdf.save(buffered, format="PDF")
-  pdf_str = base64.b64encode(buffered.getvalue())
+  pdf = open('./media/documents/HOLDEN_GJUKA_CS_RESUME.pdf', mode='rb')
+  pdf_str = base64.b64encode(pdf.read())
   response = HttpResponse(pdf_str)
   response.setdefault('Access-Control-Allow-Origin', origin_url)
   return response
