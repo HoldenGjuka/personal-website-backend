@@ -11,9 +11,9 @@ from io import BytesIO
 
 
 if DEBUG is True:
-  origin_url = "http://localhost:3000"
+  origin_url = "localhost:3000"
 else:
-  origin_url = "http://127.0.0.1"
+  origin_url = "*"
 
 # sends all blog posts as json array
 def index(request):
