@@ -16,7 +16,7 @@ def read_line_from_file(filepath):
 
 SECRET_KEY = read_line_from_file('./etc/secret-key.txt')
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["73.169.221.60"]
 
 # Application definition
 
