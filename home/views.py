@@ -11,7 +11,7 @@ from io import BytesIO
 
 
 if DEBUG is True:
-  origin_url = "localhost:3000"
+  origin_url = "*"
 else:
   origin_url = "*"
 
